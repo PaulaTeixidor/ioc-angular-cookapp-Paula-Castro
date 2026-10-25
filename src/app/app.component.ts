@@ -9,6 +9,6 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
 })
 export class App {
-  protected readonly title = signal('CookApp');
+  public readonly title = signal('CookApp');
 }
 

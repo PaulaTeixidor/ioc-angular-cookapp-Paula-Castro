@@ -1,59 +1,73 @@
-# IocAngularCookappPaulaCastro
+# CookApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.4.
+## Autor/a
 
-## Development server
+Paula Castro
 
-To start a local development server, run:
+## Descripción
 
-```bash
-ng serve
-```
+CookApp es una aplicación web desarrollada con Angular cuya finalidad es descubrir, consultar y organizar recetas de cocina.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Este proyecto forma parte de la EAC1 y tiene como objetivo preparar la estructura inicial de la aplicación, personalizar la página principal y configurar los estilos con SCSS.
 
-## Code scaffolding
+## Versiones utilizadas
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Angular CLI: 22.2.4
+- Angular: 22.2.3
+- Node.js: 24.22.1
+- npm: 12.2.1
+- Estilos: SCSS
 
-```bash
-ng generate component component-name
-```
+## Cómo crear y ejecutar el proyecto
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. Clonar el repositorio:
 
-```bash
-ng generate --help
-```
+   ```bash
+   git clone https://github.com/PaulaTeixidor/ioc-angular-cookapp-Paula-Castro.git
+   ```
 
-## Building
+2. Acceder a la carpeta del proyecto:
 
-To build the project run:
+   ```bash
+   cd ioc-angular-cookapp-Paula-Castro
+   ```
 
-```bash
-ng build
-```
+3. Instalar las dependencias:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+   ```bash
+   npm install
+   ```
 
-## Running unit tests
+4. Cambiar a la rama de trabajo:
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+   ```bash
+   git switch ra1-setup
+   ```
 
-```bash
-ng test
-```
+5. Ejecutar la aplicación en modo desarrollo:
 
-## Running end-to-end tests
+   ```bash
+   npx ng serve
+   ```
 
-For end-to-end (e2e) testing, run:
+6. Abrir la siguiente dirección en el navegador:
 
-```bash
-ng e2e
-```
+   http://localhost:4200
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Estado de la EAC1
 
-## Additional Resources
+- Proyecto Angular inicializado.
+- Sistema de rutas (Routing) activado.
+- Estilos SCSS configurados.
+- Estructura inicial de carpetas creada: `components`, `services`, `models` y `pages`.
+- Ramas de trabajo creadas y publicadas en GitHub.
+- Página inicial personalizada.
+- Tarjeta con los datos básicos del proyecto.
+- Nota adicional implementada mediante un elemento `aside`.
+- Texto obligatorio `Projecte base llest` incorporado.
+- Aplicación ejecutada en modo desarrollo.
+- Funcionamiento del *hot reload* comprobado.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Enlace del repositorio
+
+https://github.com/PaulaTeixidor/ioc-angular-cookapp-Paula-Castro

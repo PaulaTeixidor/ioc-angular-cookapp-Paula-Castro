@@ -1,17 +1,70 @@
-<div class="filtros">
-  <label for="categoria">Filtrar por categoría:</label>
+<form #formulario="ngForm" (ngSubmit)="aplicarFiltros()">
 
-  <select
-    id="categoria"
-    [(ngModel)]="categoriaSeleccionada"
-    (change)="aplicarFiltro()"
-  >
-    <option value="">Todas las recetas</option>
+  <div class="filtros">
 
-    @for (categoria of categorias; track categoria) {
-      <option [value]="categoria">
-        {{ categoria }}
-      </option>
-    }
-  </select>
-</div>
+    <h3>Filtrar recetas</h3>
+
+    <!-- Campo de búsqueda -->
+    <div class="campo">
+      <label for="textoBusqueda">Buscar receta:</label>
+
+      <input
+        type="text"
+        id="textoBusqueda"
+        name="textoBusqueda"
+        [(ngModel)]="textoBusqueda"
+        required
+        minlength="3"
+        #texto="ngModel"
+        placeholder="Escribe el nombre de una receta..."
+      />
+
+      @if (texto.invalid && (texto.dirty || texto.touched)) {
+        <div class="error">
+          @if (texto.errors?.['required']) {
+            <p>El campo de búsqueda es obligatorio.</p>
+          }
+
+          @if (texto.errors?.['minlength']) {
+            <p>Debes escribir al menos 3 caracteres.</p>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Selector de categoría -->
+    <div class="campo">
+      <label for="categoria">Categoría:</label>
+
+      <select
+        id="categoria"
+        name="categoriaSeleccionada"
+        [(ngModel)]="categoriaSeleccionada"
+      >
+        <option value="">Todas las categorías</option>
+
+        @for (categoria of categorias; track categoria) {
+          <option [value]="categoria">
+            {{ categoria }}
+          </option>
+        }
+      </select>
+    </div>
+
+    <!-- Botones -->
+    <div class="botones">
+      <button type="submit" [disabled]="formulario.invalid">
+        Aplicar filtros
+      </button>
+
+      <button
+        type="button"
+        (click)="restablecerFiltros(formulario)"
+      >
+        Restablecer
+      </button>
+    </div>
+
+  </div>
+
+</form>

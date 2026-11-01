@@ -1,6 +1,6 @@
 
 import { Component } from '@angular/core';
-import { Receta } from './models/receta.model';
+import { CategoriaReceta, Receta } from './models/receta.model';
 import { RECETAS_MOCK } from './data/recetas.mock';
 import { RecetaListComponent } from './components/receta-list/receta-list.component';
 import { RecetaFilterComponent } from './components/receta-filter/receta-filter.component';
@@ -13,27 +13,46 @@ import { RecetaFilterComponent } from './components/receta-filter/receta-filter.
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+
+  // Lista completa de recetas
   recetas: Receta[] = RECETAS_MOCK;
 
-  categoriaSeleccionada = '';
+  // Texto que escribe el usuario en el buscador
+  textoBusqueda = '';
 
+  // Categoría seleccionada en el filtro
+  categoriaSeleccionada: CategoriaReceta | '' = '';
+
+  // Receta seleccionada para mostrar su detalle
   recetaSeleccionada: Receta | null = null;
 
+  // Devuelve las recetas que cumplen los filtros
   get recetasFiltradas(): Receta[] {
-    if (!this.categoriaSeleccionada) {
-      return this.recetas;
-    }
+    return this.recetas.filter(receta => {
 
-    return this.recetas.filter(
-      receta => receta.categoria === this.categoriaSeleccionada
-    );
+      const coincideTexto = receta.nombre
+        .toLowerCase()
+        .includes(this.textoBusqueda.toLowerCase());
+
+      const coincideCategoria =
+        !this.categoriaSeleccionada ||
+        receta.categoria === this.categoriaSeleccionada;
+
+      return coincideTexto && coincideCategoria;
+    });
   }
 
-  filtrarRecetas(categoria: string): void {
-    this.categoriaSeleccionada = categoria;
+  // Recibe los filtros del componente de búsqueda
+  aplicarFiltros(filtros: {
+    texto: string;
+    categoria: CategoriaReceta | '';
+  }): void {
+    this.textoBusqueda = filtros.texto;
+    this.categoriaSeleccionada = filtros.categoria;
     this.recetaSeleccionada = null;
   }
 
+  // Selecciona una receta
   seleccionarReceta(receta: Receta): void {
     this.recetaSeleccionada = receta;
   }

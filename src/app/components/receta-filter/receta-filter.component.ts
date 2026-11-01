@@ -1,6 +1,5 @@
-
 import { Component, Output, EventEmitter } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { CategoriaReceta } from '../../models/receta.model';
 
 @Component({
@@ -11,7 +10,10 @@ import { CategoriaReceta } from '../../models/receta.model';
   styleUrl: './receta-filter.component.scss'
 })
 export class RecetaFilterComponent {
-  categoriaSeleccionada = '';
+
+  textoBusqueda = '';
+
+  categoriaSeleccionada: CategoriaReceta | '' = '';
 
   categorias: CategoriaReceta[] = [
     'Entrantes',
@@ -20,9 +22,27 @@ export class RecetaFilterComponent {
     'Bebidas'
   ];
 
-  @Output() filtroCambiado = new EventEmitter<string>();
+  @Output() filtrosAplicados = new EventEmitter<{
+    texto: string;
+    categoria: CategoriaReceta | '';
+  }>();
 
-  aplicarFiltro(): void {
-    this.filtroCambiado.emit(this.categoriaSeleccionada);
+  aplicarFiltros(): void {
+    this.filtrosAplicados.emit({
+      texto: this.textoBusqueda.trim(),
+      categoria: this.categoriaSeleccionada
+    });
+  }
+
+  restablecerFiltros(formulario: NgForm): void {
+    formulario.resetForm({
+      textoBusqueda: '',
+      categoriaSeleccionada: ''
+    });
+
+    this.filtrosAplicados.emit({
+      texto: '',
+      categoria: ''
+    });
   }
 }

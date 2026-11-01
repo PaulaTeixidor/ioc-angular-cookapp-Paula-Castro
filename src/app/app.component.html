@@ -1,7 +1,19 @@
-<main class="main-container">
+
+<a class="skip-link" href="#contenido-principal">
+  Saltar al contenido principal
+</a>
+
+<a class="skip-link" href="#contenido-principal">
+  Saltar al contenido principal
+</a>
+
+
+<main id="contenido-principal" class="main-container">
   <header>
     <h1>CookApp</h1>
     <p>Descubre y organiza tus recetas favoritas.</p>
+
+    
   </header>
 
   <app-receta-filter
@@ -10,7 +22,7 @@
 
 <h2>Catálogo de recetas</h2>
 
-<p class="contador">
+<p class="contador" role="status" aria-live="polite">
   Resultados encontrados: {{ recetasFiltradas.length }}
 </p>
 

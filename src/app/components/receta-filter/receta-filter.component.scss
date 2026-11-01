@@ -11,3 +11,70 @@ select {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
+
+.filtros {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px;
+  background: #f0f5f0;
+  border-radius: 12px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campo label {
+  font-weight: 600;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.error {
+  color: #b42318;
+  font-size: 0.9rem;
+}
+
+.error p {
+  margin: 4px 0;
+}
+
+.botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.botones button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.botones button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .botones {
+    flex-direction: column;
+  }
+
+  .botones button {
+    width: 100%;
+  }
+}

@@ -1,7 +1,7 @@
 .main-container {
-  max-width: 1200px;
+  width: min(100% - 40px, 1200px);
   margin: 0 auto;
-  padding: 30px 20px;
+  padding: 30px 0;
 }
 
 header {
@@ -18,4 +18,20 @@ header h1 {
   padding: 20px;
   border-radius: 12px;
   background: #f0f5f0;
+}
+
+/* Adaptación a móviles */
+@media (max-width: 600px) {
+  .main-container {
+    width: calc(100% - 24px);
+    padding: 18px 0;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .detalle {
+    padding: 16px;
+  }
 }

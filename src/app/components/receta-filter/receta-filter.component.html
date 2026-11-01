@@ -1,7 +1,5 @@
 <form #formulario="ngForm" (ngSubmit)="aplicarFiltros()">
-
   <div class="filtros">
-
     <h3>Filtrar recetas</h3>
 
     <!-- Campo de búsqueda -->
@@ -17,10 +15,12 @@
         minlength="3"
         #texto="ngModel"
         placeholder="Escribe el nombre de una receta..."
+        [attr.aria-invalid]="texto.invalid && (texto.dirty || texto.touched)"
+        aria-describedby="error-busqueda"
       />
 
       @if (texto.invalid && (texto.dirty || texto.touched)) {
-        <div class="error">
+        <div id="error-busqueda" class="error" role="alert">
           @if (texto.errors?.['required']) {
             <p>El campo de búsqueda es obligatorio.</p>
           }
@@ -64,7 +64,5 @@
         Restablecer
       </button>
     </div>
-
   </div>
-
 </form>

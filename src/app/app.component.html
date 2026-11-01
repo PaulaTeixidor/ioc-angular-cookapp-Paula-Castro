@@ -1,40 +1,25 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-
-
 <main class="main-container">
-  <header class="page-header">
-    <h1>{{ title() }}</h1>
-    <p>
-      Soy Paula Castro y esta aplicación permite descubrir,
-      consultar y organizar recetas de cocina.
-    </p>
+  <header>
+    <h1>CookApp</h1>
+    <p>Descubre y organiza tus recetas favoritas.</p>
   </header>
 
-  <section class="project-card">
-    <h2>Datos del proyecto</h2>
-    <p><strong>Aplicación:</strong> {{ title() }}</p>
-    <p><strong>Alumna:</strong> Paula Castro</p>
-    <p><strong>Tecnología:</strong> Angular</p>
-    <p><strong>Estilos:</strong> SCSS</p>
-    <p><strong>Finalidad:</strong> Gestión de recetas de cocina</p>
-  </section>
+  <app-receta-filter
+    (filtroCambiado)="filtrarRecetas($event)"
+  />
 
-  <aside class="project-note">
-    <h2>Nota</h2>
-    <p>Pronto añadiremos nuevas funciones!</p>
-  </aside>
+  <h2>Catálogo de recetas</h2>
 
-  <p class="status-message">Projecte base llest </p>
+  <app-receta-list
+    [recetas]="recetasFiltradas"
+    (recetaSeleccionada)="seleccionarReceta($event)"
+  />
 
-  <router-outlet />
+  @if (recetaSeleccionada) {
+    <section class="detalle">
+      <h2>Receta seleccionada</h2>
+      <h3>{{ recetaSeleccionada.nombre }}</h3>
+      <p>{{ recetaSeleccionada.descripcion }}</p>
+    </section>
+  }
 </main>
-

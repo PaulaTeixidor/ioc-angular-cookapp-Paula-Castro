@@ -1,0 +1,33 @@
+.receta-card {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+h3 {
+  margin: 0;
+}
+
+.destacada {
+  color: #b7791f;
+  font-weight: bold;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #426b50;
+  color: white;
+  cursor: pointer;
+}

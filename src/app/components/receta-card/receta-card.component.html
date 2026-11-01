@@ -1,0 +1,23 @@
+<article class="receta-card">
+  <div class="card-header">
+    <h3>{{ receta.nombre }}</h3>
+
+    @if (receta.destacada) {
+      <span class="destacada">★ Destacada</span>
+    }
+  </div>
+
+  <app-categoria-badge
+    [categoria]="receta.categoria"
+  />
+
+  <p>{{ receta.descripcion }}</p>
+
+  <p>Tiempo: {{ receta.tiempoPreparacion }} minutos</p>
+
+  <p>Publicada: {{ receta.fechaPublicacion | date:'dd/MM/yyyy' }}</p>
+
+  <button (click)="seleccionarReceta()">
+    Ver receta
+  </button>
+</article>

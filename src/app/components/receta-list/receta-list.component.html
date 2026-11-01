@@ -1,10 +1,21 @@
 <section class="receta-list">
-  @for (receta of recetas; track receta.id) {
-    <app-receta-card
-      [receta]="receta"
-      (recetaSeleccionada)="seleccionarReceta($event)"
-    />
-  } @empty {
-    <p>No se han encontrado recetas.</p>
+
+  @if (recetas.length > 0) {
+
+    @for (receta of recetas; track receta.id) {
+      <app-receta-card
+        [receta]="receta"
+        (recetaSeleccionada)="seleccionarReceta($event)"
+      />
+    }
+
+  } @else {
+
+    <p class="mensaje-vacio">
+      No se han encontrado recetas.
+      Prueba  modificar los filtros.
+    </p>
+
   }
+
 </section>

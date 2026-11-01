@@ -8,18 +8,34 @@
   (filtrosAplicados)="aplicarFiltros($event)"
 />
 
-  <h2>Catálogo de recetas</h2>
+<h2>Catálogo de recetas</h2>
+
+<p class="contador">
+  Resultados encontrados: {{ recetasFiltradas.length }}
+</p>
 
   <app-receta-list
     [recetas]="recetasFiltradas"
     (recetaSeleccionada)="seleccionarReceta($event)"
   />
 
-  @if (recetaSeleccionada) {
-    <section class="detalle">
-      <h2>Receta seleccionada</h2>
-      <h3>{{ recetaSeleccionada.nombre }}</h3>
-      <p>{{ recetaSeleccionada.descripcion }}</p>
-    </section>
-  }
+@if (recetaSeleccionada) {
+  <section class="detalle">
+    <h2>Detalle de la receta</h2>
+
+    <h3>{{ recetaSeleccionada.nombre }}</h3>
+
+    <p>{{ recetaSeleccionada.descripcion }}</p>
+
+    <p>
+      Categoría: {{ recetaSeleccionada.categoria }}
+    </p>
+
+    <p>
+      Publicada:
+      {{ recetaSeleccionada.fechaPublicacion | date:'dd/MM/yyyy' }}
+    </p>
+
+  </section>
+}
 </main>

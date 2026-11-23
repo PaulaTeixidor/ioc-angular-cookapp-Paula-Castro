@@ -11,8 +11,7 @@
         id="textoBusqueda"
         name="textoBusqueda"
         [(ngModel)]="textoBusqueda"
-        required
-        minlength="3"
+        
         #texto="ngModel"
         placeholder="Escribe el nombre de una receta..."
         [attr.aria-invalid]="texto.invalid && (texto.dirty || texto.touched)"
@@ -25,9 +24,7 @@
             <p>El campo de búsqueda es obligatorio.</p>
           }
 
-          @if (texto.errors?.['minlength']) {
-            <p>Debes escribir al menos 3 caracteres.</p>
-          }
+         
         </div>
       }
     </div>

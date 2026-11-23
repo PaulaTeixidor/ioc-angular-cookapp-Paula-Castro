@@ -3,51 +3,53 @@
   Saltar al contenido principal
 </a>
 
-<a class="skip-link" href="#contenido-principal">
-  Saltar al contenido principal
-</a>
-
-
 <main id="contenido-principal" class="main-container">
+
   <header>
     <h1>CookApp</h1>
     <p>Descubre y organiza tus recetas favoritas.</p>
-
-    
   </header>
 
   <app-receta-filter
-  (filtrosAplicados)="aplicarFiltros($event)"
-/>
-
-<h2>Catálogo de recetas</h2>
-
-<p class="contador" role="status" aria-live="polite">
-  Resultados encontrados: {{ recetasFiltradas.length }}
-</p>
-
-  <app-receta-list
-    [recetas]="recetasFiltradas"
-    (recetaSeleccionada)="seleccionarReceta($event)"
+    (filtrosAplicados)="aplicarFiltros($event)"
   />
 
-@if (recetaSeleccionada) {
-  <section class="detalle">
-    <h2>Detalle de la receta</h2>
+  <h2>Catálogo de recetas</h2>
 
-    <h3>{{ recetaSeleccionada.nombre }}</h3>
-
-    <p>{{ recetaSeleccionada.descripcion }}</p>
-
-    <p>
-      Categoría: {{ recetaSeleccionada.categoria }}
+  @if (cargando()) {
+    <p role="status">Cargando recetas...</p>
+  }
+  @else if (errorCarga()) {
+    <p role="alert">{{ errorCarga() }}</p>
+  }
+  @else {
+    <p class="contador" role="status" aria-live="polite">
+      Resultados encontrados: {{ recetasFiltradas.length }}
     </p>
 
-    <p>
-      Publicada:
-      {{ recetaSeleccionada.fechaPublicacion | date:'dd/MM/yyyy' }}
-    </p>
+    <app-receta-list
+      [recetas]="recetasFiltradas"
+      (recetaSeleccionada)="seleccionarReceta($event)"
+    />
 
-  </section>
-}
+    @if (recetaSeleccionada()) {
+      <section class="detalle">
+        <h2>Detalle de la receta</h2>
+
+        <h3>{{ recetaSeleccionada()!.nombre }}</h3>
+
+        <p>{{ recetaSeleccionada()!.descripcion }}</p>
+
+        <p>
+          Categoría: {{ recetaSeleccionada()!.categoria }}
+        </p>
+
+        <p>
+          Publicada:
+          {{ recetaSeleccionada()!.fechaPublicacion | date:'dd/MM/yyyy' }}
+        </p>
+      </section>
+    }
+  }
+
 </main>

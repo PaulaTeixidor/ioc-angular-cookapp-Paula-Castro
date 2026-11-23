@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RecetaFilter } from './receta-filter.component';
+import { RecetaFilterComponent } from './receta-filter.component';
 
 describe('RecetaFilter', () => {
-  let component: RecetaFilter;
-  let fixture: ComponentFixture<RecetaFilter>;
+  let component: RecetaFilterComponent;
+  let fixture: ComponentFixture<RecetaFilterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RecetaFilter],
+      imports: [RecetaFilterComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(RecetaFilter);
+    fixture = TestBed.createComponent(RecetaFilterComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

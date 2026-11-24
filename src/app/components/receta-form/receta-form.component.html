@@ -1,0 +1,70 @@
+
+<section class="formulario-receta">
+  <h2>Añadir nueva receta</h2>
+
+  <form #formulario="ngForm" (ngSubmit)="enviarFormulario()">
+
+    <label for="nombre">Nombre de la receta</label>
+    <input
+      id="nombre"
+      name="nombre"
+      type="text"
+      [(ngModel)]="receta.nombre"
+      required
+      minlength="3"
+    />
+
+    <label for="descripcion">Descripción</label>
+    <textarea
+      id="descripcion"
+      name="descripcion"
+      [(ngModel)]="receta.descripcion"
+      required
+    ></textarea>
+
+    <label for="categoria">Categoría</label>
+    <select
+      id="categoria"
+      name="categoria"
+      [(ngModel)]="receta.categoria"
+      required
+    >
+      @for (categoria of categorias; track categoria) {
+        <option [value]="categoria">{{ categoria }}</option>
+      }
+    </select>
+
+    <label for="fechaPublicacion">Fecha de publicación</label>
+    <input
+      id="fechaPublicacion"
+      name="fechaPublicacion"
+      type="date"
+      [(ngModel)]="receta.fechaPublicacion"
+      required
+    />
+
+    <label for="tiempoPreparacion">Tiempo de preparación (minutos)</label>
+    <input
+      id="tiempoPreparacion"
+      name="tiempoPreparacion"
+      type="number"
+      [(ngModel)]="receta.tiempoPreparacion"
+      required
+      min="1"
+    />
+
+    <label>
+      <input
+        type="checkbox"
+        name="destacada"
+        [(ngModel)]="receta.destacada"
+      />
+      Receta destacada
+    </label>
+
+    <button type="submit" [disabled]="formulario.invalid">
+      Guardar receta
+    </button>
+
+  </form>
+</section>

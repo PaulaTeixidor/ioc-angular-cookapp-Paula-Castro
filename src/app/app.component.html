@@ -10,6 +10,10 @@
     <p>Descubre y organiza tus recetas favoritas.</p>
   </header>
 
+  <app-receta-form
+  (recetaCreada)="crearReceta($event)"
+/>
+
   <app-receta-filter
     (filtrosAplicados)="aplicarFiltros($event)"
   />

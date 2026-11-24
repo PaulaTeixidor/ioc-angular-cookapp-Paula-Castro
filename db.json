@@ -1,8 +1,7 @@
-
 {
   "recetas": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "TRUITA",
       "descripcion": "Tortilla tradicional española con patatas y cebolla.",
       "categoria": "Entrantes",
@@ -11,7 +10,7 @@
       "destacada": true
     },
     {
-      "id": 2,
+      "id": "2",
       "nombre": "Gazpacho andaluz",
       "descripcion": "Sopa fría de tomate, pepino, pimiento y aceite de oliva.",
       "categoria": "Entrantes",
@@ -20,7 +19,7 @@
       "destacada": true
     },
     {
-      "id": 3,
+      "id": "3",
       "nombre": "Paella de verduras",
       "descripcion": "Arroz con verduras de temporada y azafrán.",
       "categoria": "Platos principales",
@@ -29,7 +28,7 @@
       "destacada": true
     },
     {
-      "id": 4,
+      "id": "4",
       "nombre": "Lasaña de carne",
       "descripcion": "Capas de pasta con carne, tomate y bechamel.",
       "categoria": "Platos principales",
@@ -38,7 +37,7 @@
       "destacada": false
     },
     {
-      "id": 5,
+      "id": "5",
       "nombre": "Pollo al horno",
       "descripcion": "Pollo asado con patatas, ajo y hierbas aromáticas.",
       "categoria": "Platos principales",
@@ -47,7 +46,7 @@
       "destacada": true
     },
     {
-      "id": 6,
+      "id": "6",
       "nombre": "Crema de calabaza",
       "descripcion": "Crema suave de calabaza, puerro y zanahoria.",
       "categoria": "Entrantes",
@@ -56,7 +55,7 @@
       "destacada": false
     },
     {
-      "id": 7,
+      "id": "7",
       "nombre": "Flan de huevo",
       "descripcion": "Postre casero de huevo, leche y caramelo.",
       "categoria": "Postres",
@@ -65,7 +64,7 @@
       "destacada": true
     },
     {
-      "id": 8,
+      "id": "8",
       "nombre": "Tarta de manzana",
       "descripcion": "Tarta dulce con manzana y una base crujiente.",
       "categoria": "Postres",
@@ -74,7 +73,7 @@
       "destacada": false
     },
     {
-      "id": 9,
+      "id": "9",
       "nombre": "Limonada casera",
       "descripcion": "Bebida refrescante de limón, agua y un toque de azúcar.",
       "categoria": "Bebidas",
@@ -83,13 +82,41 @@
       "destacada": false
     },
     {
-      "id": 10,
+      "id": "10",
       "nombre": "Batido de fresas",
       "descripcion": "Batido natural de fresas, leche y yogur.",
       "categoria": "Bebidas",
       "fechaPublicacion": "2026-11-10",
       "tiempoPreparacion": 5,
       "destacada": true
+    },
+    {
+      "nombre": "Pastel",
+      "descripcion": "pastel manzana",
+      "categoria": "Postres",
+      "fechaPublicacion": "2026-11-24",
+      "tiempoPreparacion": 30,
+      "destacada": true,
+      "id": "Wa4Q3Dd26d8"
+    },
+    {
+      "nombre": "milanesa",
+      "descripcion": "milanesa",
+      "categoria": "Platos principales",
+      "fechaPublicacion": "2026-11-24",
+      "tiempoPreparacion": 30,
+      "destacada": false,
+      "id": "kr3Wc3KXkRg"
+    },
+    {
+      "nombre": "arroz",
+      "descripcion": "arroz ",
+      "categoria": "Platos principales",
+      "fechaPublicacion": "2026-11-24",
+      "tiempoPreparacion": 10,
+      "destacada": false,
+      "id": "rOmy4C5kols"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
